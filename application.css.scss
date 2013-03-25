@@ -1,0 +1,25 @@
+// Place all the styles related to the application controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'foundation_and_overrides';
+
+.scrollToTop{
+  width:120px;
+  height:130px;
+  padding:10px;
+  text-align:center;
+  background: whiteSmoke;
+  font-weight: bold;
+  color: #444;
+  text-decoration: none;
+  position:fixed;
+  top:655px;
+  right:60px;
+  display:none;
+  background: url('up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+  text-decoration:none;
+}
+
+

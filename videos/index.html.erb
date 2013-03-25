@@ -1,0 +1,58 @@
+
+<div id="mainContent" class="ten columns centered">
+<% if @videos.blank? %>
+<p> Upload your files :) </p>
+<%= link_to 'New File', new_video_path, :class =>'button' %>
+<% else %>
+
+<h1> Training Videos</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>File Name</th>
+    <th>Videos</th>   
+    <th>Actions</th>
+   
+  </tr>
+
+<% @videos.each do |vid| %>
+  <tr>
+    <td><%= vid.name %></td>
+    <td><%= vid.vi_file_name =%></td>
+    <td><%= video_tag vid.vi.url , :size => "540x400", :controls => true%></td>
+    <td><dl class="vertical tabs">
+    	  
+    	  </br> </br></br>
+          <dd><%= link_to 'Show', vid %></dd>
+          <dd><%= link_to 'Edit', edit_video_path(vid) %></dd>
+          <dd><%= link_to 'Destroy', vid, method: :delete, data: { confirm: 'Are you sure?' } %></dd>
+          <dd><%= link_to 'Download', download_path(vid) %></dd>
+   <!--  <dd><%= button_to 'Buy', line_items_path( subtype: 'Video'), confirm: 'Do you want to add this into your cart?',:class=>"small round success button",:remote=>true %></dd> -->
+        </dl></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="four columns centered">
+<%= link_to 'New Video', new_video_path ,:class=>"button"%>
+</div>
+<% end %>
+</div>
+<a href="#" class="scrollToTop">Back To Top</a>
+<script type="text/javascript">
+$(document).ready(function(){
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 100) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+});
+</script>
